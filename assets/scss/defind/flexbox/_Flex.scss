@@ -55,3 +55,9 @@
         gap: $gap-value;
     }
 }
+
+@mixin flexBoxWidthCustome($params-gap: null, $params-column: null) {
+    @if $params-gap !=null and $params-column !=null {
+        width: calc(100% / $params-column - $params-gap / $params-column * ($params-column - 1));
+    }
+}
