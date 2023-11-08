@@ -1,5 +1,5 @@
 //----------Master Typography----------
-@mixin customFont($param-size: null, $param-weight: null, $param-line-height: null, $param-color: null, $param-ratio-tablet: null, $param-ratio-mobile: null) {
+@mixin customFont($param-size: null, $param-weight: null, $param-line-height: null, $param-color: null, $param-ratio-tablet: null, $param-ratio-mobile: null, $param-transition: true) {
 
     $font-size: if($param-size, $param-size, 16px);
     $font-weight: if($param-weight, $param-weight, 400);
@@ -11,11 +11,14 @@
     font-weight: $param-weight;
     line-height: $line-height;
     color: $color;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    transition: all 0.3s linear;
 
+    @if $param-transition == true{
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+    }
+ 
     //----CSS----
 
     //------Tablet------
