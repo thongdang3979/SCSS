@@ -1,13 +1,19 @@
+//---------------Font---------------
+@import 'defind/font/Font';
+
 //---------------Color---------------
 @import 'defind/color/Color';
 
 //---------------FlexBox---------------
 @import 'defind/flexbox/Flex';
 
-//---------------Reponsive---------------
-@import 'defind/reponsive/Reponsive';
+//---------------Layout---------------
+@import 'defind/layout/Layout';
 
-//---------------Typohraphy---------------
+//---------------Responsive---------------
+@import 'defind/responsive/Responsive';
+
+//---------------Typography---------------
 @import 'defind/typography/Typography';
 
 //---------------Transition---------------
@@ -16,5 +22,8 @@
 //---------------Animation---------------
 @import 'defind/animation/Animation';
 
-//---------------Tranform---------------
-@import 'defind/transform/Tranform';
+//---------------Transform---------------
+@import 'defind/transform/Transform';
+
+//---------------Button---------------
+@import 'defind/button/Button';
