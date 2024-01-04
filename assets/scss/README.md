@@ -1,11 +1,11 @@
 # Intall SASS
 ```
 npm install -g sass
-
 ```
 # Use SASS
 ```
 cd to/path/scss
+
 sass --watch scss/.:css/. --style compressed
 ```
 
