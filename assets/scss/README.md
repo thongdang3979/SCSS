@@ -2,6 +2,7 @@
 ```
 npm install -g sass
 ```
+
 # Use SASS
 ```
 cd to/path/scss
