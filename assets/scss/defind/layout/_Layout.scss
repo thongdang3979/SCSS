@@ -21,7 +21,7 @@
             width: math.percentage(math.div($i, $total-columns));
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 767px) {
             .col-md-#{$i} {
                 flex: 0 0 auto;
                 width: math.percentage(math.div($i, $total-columns));
