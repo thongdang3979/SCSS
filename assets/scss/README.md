@@ -1,4 +1,4 @@
-# Intall SASS
+# Install SASS
 ```
 npm install -g sass
 ```
@@ -10,7 +10,7 @@ cd to/path/scss
 sass --watch scss/.:css/. --style compressed
 ```
 
-# Import Defind Mixin
+# Import Defined Mixin
 ```
 @import 'function.scss';
 ```
@@ -37,5 +37,5 @@ sass --watch scss/.:css/. --style compressed
 }
 ```
 
-# Website Autoprefixed
+# Website Auto prefixed
 https://autoprefixer.github.io/
