@@ -23,13 +23,13 @@
 
     //------Tablet------
     @if type-of($param-ratio-tablet)==number {
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 992px) {
             font-size: $font-size * $param-ratio-tablet;
         }
     }
 
     @else if type-of($param-ratio-tablet)==string {
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 992px) {
             font-size: $param-ratio-tablet;
         }
     }
@@ -37,13 +37,13 @@
 
     //------Mobile------
     @if type-of($param-ratio-mobile)==number {
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
             font-size: $font-size * $param-ratio-mobile;
         }
     }
 
     @else if type-of($param-ratio-mobile)==string {
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
             font-size: $param-ratio-mobile;
         }
     }
