@@ -1,0 +1,18 @@
+@import "function";
+
+/* Columns */
+@include columns(12);
+
+/* Containers */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@include container(768px, 100%);
+@include container(992px, 960px);
+@include container(1200px, 1140px);
+@include container(1400px, 1320px);
