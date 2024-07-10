@@ -1,11 +1,5 @@
 @import "function";
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 /* Columns */
 @include columns(12);
 
