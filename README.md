@@ -3,21 +3,17 @@
 npm install -g sass
 ```
 
-# Covert SASS to CSS (min)
+# Use SASS
 ```sh
 cd to/path/scss
 
 sass --watch scss/.:css/. --style compressed
 ```
 
-# Link CSS
-```html
-<link rel="stylesheet" href="master.css">
-```
-
 # Import Defined Mixin
 ```css
-@import 'function.scss';
+@import "mixin/mixin";
+@import "defind/defind";
 ```
 
 # Using Mixin
