@@ -1,9 +1,10 @@
-//----------Custom Transform Mixin----------
-@mixin customTransform($transform: null) {
-    @if $transform != null {
-        // Apply the transform with vendor prefixes for broader support
-        -webkit-transform: $transform; /* Chrome, Safari (older versions) */
-        -ms-transform: $transform;      /* Internet Explorer 9 */
-        transform: $transform;          /* Standard syntax (IE 10+, Firefox, Opera) */
+//----------Custom Transition----------
+@mixin customTransition($param-transition: null) {
+    @if $param-transition != null {
+        -webkit-transition: $param-transition; /* Chrome, Safari (older versions), Android */
+        -moz-transition: $param-transition;    /* Firefox (older versions) */
+        -ms-transition: $param-transition;      /* Internet Explorer 10+ */
+        -o-transition: $param-transition;       /* Opera (older versions) */
+        transition: $param-transition;          /* Standard syntax (IE 11+, Firefox, Opera) */
     }
 }
