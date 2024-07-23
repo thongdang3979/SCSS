@@ -1,6 +1,11 @@
 @import "mixin/mixin";
 @import "defind/defind";
 
+:root{
+    --white-color: #{$White-FFF};
+    --black-color: #{$Black-000};
+}
+
 /* Columns */
 @include columns(12);
 
