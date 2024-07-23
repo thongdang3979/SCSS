@@ -1,8 +1,9 @@
-//----------Custom Tranform----------
-@mixin customTranform($param-tranform: null) {
-    @if $param-tranform !=null {
-        -webkit-transform: $param-tranform; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
-        -ms-transform: $param-tranform; /* IE 9 */
-        transform: $param-tranform; /* IE 10, Fx 16+, Op 12.1+ */
+//----------Custom Transform Mixin----------
+@mixin customTransform($transform: null) {
+    @if $transform != null {
+        // Apply the transform with vendor prefixes for broader support
+        -webkit-transform: $transform; /* Chrome, Safari (older versions) */
+        -ms-transform: $transform;      /* Internet Explorer 9 */
+        transform: $transform;          /* Standard syntax (IE 10+, Firefox, Opera) */
     }
 }
