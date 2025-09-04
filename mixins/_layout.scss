@@ -1,0 +1,105 @@
+@use 'sass:math';
+
+@mixin col($size, $total: 12) {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($size, $total));
+}
+
+@mixin col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+@mixin col-full {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+@mixin col-sm($size, $total: 12) {
+    @media (min-width: 576px) {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($size, $total));
+    }
+}
+
+@mixin col-md($size, $total: 12) {
+    @media (min-width: 768px) {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($size, $total));
+    }
+}
+
+@mixin col-lg($size, $total: 12) {
+    @media (min-width: 992px) {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($size, $total));
+    }
+}
+
+@mixin col-xl($size, $total: 12) {
+    @media (min-width: 1200px) {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($size, $total));
+    }
+}
+
+@mixin container($padding: 15px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+@mixin container-responsive($sm: 540px, $md: 720px, $lg: 960px, $xl: 1140px, $xxl: 1320px) {
+    @media (min-width: 576px) { max-width: $sm; }
+    @media (min-width: 768px) { max-width: $md; }
+    @media (min-width: 992px) { max-width: $lg; }
+    @media (min-width: 1200px) { max-width: $xl; }
+    @media (min-width: 1400px) { max-width: $xxl; }
+}
+
+@mixin row($gutter: 15px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+
+    > * {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+}
+
+@mixin grid($columns: 12, $gap: 20px) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+@mixin grid-item($col-start: auto, $col-end: auto, $row-start: auto, $row-end: auto) {
+    grid-column: $col-start / $col-end;
+    grid-row: $row-start / $row-end;
+}
+
+@mixin aspect-ratio($width: 16, $height: 9) {
+    aspect-ratio: #{$width} / #{$height};
+    
+    @supports not (aspect-ratio: 1 / 1) {
+        position: relative;
+        
+        &::before {
+            content: '';
+            display: block;
+            padding-top: math.percentage(math.div($height, $width));
+        }
+        
+        > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

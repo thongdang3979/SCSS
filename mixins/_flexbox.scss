@@ -1,0 +1,63 @@
+@mixin flex($direction: row, $wrap: nowrap, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+    
+    @if $gap != 0 {
+        gap: $gap;
+    }
+}
+
+@mixin flex-center($direction: row, $gap: 0) {
+    @include flex($direction, nowrap, center, center, $gap);
+}
+
+@mixin flex-between($direction: row, $align: center, $gap: 0) {
+    @include flex($direction, nowrap, space-between, $align, $gap);
+}
+
+@mixin flex-around($direction: row, $align: center, $gap: 0) {
+    @include flex($direction, nowrap, space-around, $align, $gap);
+}
+
+@mixin flex-evenly($direction: row, $align: center, $gap: 0) {
+    @include flex($direction, nowrap, space-evenly, $align, $gap);
+}
+
+@mixin flex-item($grow: 0, $shrink: 1, $basis: auto) {
+    flex: $grow $shrink $basis;
+}
+
+@mixin flex-width($gap, $columns, $tablet-columns: null, $mobile-columns: null) {
+    width: calc(100% / #{$columns} - #{$gap} / #{$columns} * (#{$columns} - 1));
+
+    @if $tablet-columns {
+        @media (max-width: 1024px) {
+            width: calc(100% / #{$tablet-columns} - #{$gap} / #{$tablet-columns} * (#{$tablet-columns} - 1));
+        }
+    }
+
+    @if $mobile-columns {
+        @media (max-width: 768px) {
+            width: calc(100% / #{$mobile-columns} - #{$gap} / #{$mobile-columns} * (#{$mobile-columns} - 1));
+        }
+    }
+}
+
+@mixin absolute-center($horizontal: true, $vertical: true) {
+    position: absolute;
+    
+    @if $horizontal and $vertical {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } @else if $horizontal {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if $vertical {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

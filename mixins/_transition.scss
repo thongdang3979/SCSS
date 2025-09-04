@@ -1,0 +1,23 @@
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+@mixin transition-delay($delay: 0s) {
+    transition-delay: $delay;
+}
+
+@mixin transition-colors($duration: 0.15s) {
+    transition: color $duration ease, background-color $duration ease, border-color $duration ease, fill $duration ease;
+}
+
+@mixin transition-opacity($duration: 0.2s) {
+    transition: opacity $duration ease;
+}
+
+@mixin transition-transform($duration: 0.3s, $timing: ease-out) {
+    transition: transform $duration $timing;
+}
+
+@mixin transition-none {
+    transition: none;
+}

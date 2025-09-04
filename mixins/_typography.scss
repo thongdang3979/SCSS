@@ -1,0 +1,113 @@
+@mixin font($size: null, $weight: null, $line-height: null, $color: null, $tablet-ratio: null, $mobile-ratio: null, $transition: true) {
+    
+    $font-size: if($size, $size, $text-base);
+    $font-weight: if($weight, $weight, $font-normal);
+    $line-height: if($line-height, $line-height, $leading-normal);
+    $color: if($color, $color, unset);
+
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    color: $color;
+
+    @if $transition == true {
+        transition: all 0.3s ease;
+    }
+
+    @if type-of($tablet-ratio) == number {
+        @media (max-width: 992px) {
+            font-size: $font-size * $tablet-ratio;
+        }
+    } @else if type-of($tablet-ratio) == string {
+        @media (max-width: 992px) {
+            font-size: $tablet-ratio;
+        }
+    }
+
+    @if type-of($mobile-ratio) == number {
+        @media (max-width: 767px) {
+            font-size: $font-size * $mobile-ratio;
+        }
+    } @else if type-of($mobile-ratio) == string {
+        @media (max-width: 767px) {
+            font-size: $mobile-ratio;
+        }
+    }
+}
+
+@mixin fluid-font($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+    font-size: clamp(#{$min-size}, calc(#{$min-size} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}) / (#{$max-width} - #{$min-width}))), #{$max-size});
+}
+
+@mixin text-truncate($lines: 1) {
+    @if $lines == 1 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+@mixin font-smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin text-selection($bg: $primary, $color: $white) {
+    &::selection {
+        background: $bg;
+        color: $color;
+    }
+    
+    &::-moz-selection {
+        background: $bg;
+        color: $color;
+    }
+}
+
+@mixin placeholder($color: $gray-400, $opacity: 1) {
+    &::placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    
+    &::-webkit-input-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    
+    &::-moz-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    
+    &:-ms-input-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+}
+
+@mixin heading($level: 1) {
+    @if $level == 1 {
+        @include font($text-4xl, $font-bold, $leading-tight);
+    }
+    @if $level == 2 {
+        @include font($text-3xl, $font-bold, $leading-tight);
+    }
+    @if $level == 3 {
+        @include font($text-2xl, $font-semibold, $leading-tight);
+    }
+    @if $level == 4 {
+        @include font($text-xl, $font-semibold, $leading-snug);
+    }
+    @if $level == 5 {
+        @include font($text-lg, $font-medium, $leading-snug);
+    }
+    @if $level == 6 {
+        @include font($text-base, $font-medium, $leading-normal);
+    }
+}

@@ -1,0 +1,81 @@
+@mixin transform($value) {
+    transform: $value;
+}
+
+@mixin translate($x: 0, $y: 0) {
+    transform: translate($x, $y);
+}
+
+@mixin translate-x($x) {
+    transform: translateX($x);
+}
+
+@mixin translate-y($y) {
+    transform: translateY($y);
+}
+
+@mixin translate-3d($x: 0, $y: 0, $z: 0) {
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin scale($x: 1, $y: $x) {
+    transform: scale($x, $y);
+}
+
+@mixin scale-x($x) {
+    transform: scaleX($x);
+}
+
+@mixin scale-y($y) {
+    transform: scaleY($y);
+}
+
+@mixin rotate($angle) {
+    transform: rotate($angle);
+}
+
+@mixin rotate-x($angle) {
+    transform: rotateX($angle);
+}
+
+@mixin rotate-y($angle) {
+    transform: rotateY($angle);
+}
+
+@mixin rotate-z($angle) {
+    transform: rotateZ($angle);
+}
+
+@mixin skew($x: 0, $y: 0) {
+    transform: skew($x, $y);
+}
+
+@mixin skew-x($x) {
+    transform: skewX($x);
+}
+
+@mixin skew-y($y) {
+    transform: skewY($y);
+}
+
+@mixin transform-origin($origin) {
+    transform-origin: $origin;
+}
+
+@mixin perspective($perspective) {
+    perspective: $perspective;
+}
+
+@mixin backface-visibility($visibility) {
+    backface-visibility: $visibility;
+}
+
+@mixin transform-style($style) {
+    transform-style: $style;
+}
+
+@mixin hardware-acceleration {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

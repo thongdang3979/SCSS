@@ -1,0 +1,85 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == xs {
+        @media (min-width: 0) { @content; }
+    }
+    @if $breakpoint == sm {
+        @media (min-width: 576px) { @content; }
+    }
+    @if $breakpoint == md {
+        @media (min-width: 768px) { @content; }
+    }
+    @if $breakpoint == lg {
+        @media (min-width: 992px) { @content; }
+    }
+    @if $breakpoint == xl {
+        @media (min-width: 1200px) { @content; }
+    }
+    @if $breakpoint == xxl {
+        @media (min-width: 1400px) { @content; }
+    }
+    @if $breakpoint == mobile {
+        @media (max-width: 767px) { @content; }
+    }
+    @if $breakpoint == tablet {
+        @media (max-width: 991px) { @content; }
+    }
+    @if $breakpoint == laptop {
+        @media (max-width: 1199px) { @content; }
+    }
+    @if $breakpoint == desktop {
+        @media (min-width: 1200px) { @content; }
+    }
+    @if type-of($breakpoint) == number {
+        @media (max-width: $breakpoint) { @content; }
+    }
+}
+
+@mixin respond-down($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: 575.98px) { @content; }
+    }
+    @if $breakpoint == md {
+        @media (max-width: 767.98px) { @content; }
+    }
+    @if $breakpoint == lg {
+        @media (max-width: 991.98px) { @content; }
+    }
+    @if $breakpoint == xl {
+        @media (max-width: 1199.98px) { @content; }
+    }
+    @if $breakpoint == xxl {
+        @media (max-width: 1399.98px) { @content; }
+    }
+}
+
+@mixin respond-between($lower, $upper) {
+    @if $lower == xs and $upper == sm {
+        @media (min-width: 0) and (max-width: 575.98px) { @content; }
+    }
+    @if $lower == sm and $upper == md {
+        @media (min-width: 576px) and (max-width: 767.98px) { @content; }
+    }
+    @if $lower == md and $upper == lg {
+        @media (min-width: 768px) and (max-width: 991.98px) { @content; }
+    }
+    @if $lower == lg and $upper == xl {
+        @media (min-width: 992px) and (max-width: 1199.98px) { @content; }
+    }
+    @if $lower == xl and $upper == xxl {
+        @media (min-width: 1200px) and (max-width: 1399.98px) { @content; }
+    }
+}
+
+@mixin hide-on($breakpoint) {
+    @include respond($breakpoint) {
+        display: none !important;
+    }
+}
+
+@mixin show-on($breakpoint) {
+    display: none !important;
+    
+    @include respond($breakpoint) {
+        display: block !important;
+    }
+}
