@@ -1,5 +1,5 @@
-@import "mixins/mixins";
-@import "base/base";
+@use "mixins/index" as *;
+@use "base/index" as *;
 
 :root {
     --white: #{$white};

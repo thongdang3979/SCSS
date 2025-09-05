@@ -1,3 +1,7 @@
+@use 'sass:meta';
+@use '../base/font' as *;
+@use '../base/color' as *;
+
 @mixin font($size: null, $weight: null, $line-height: null, $color: null, $tablet-ratio: null, $mobile-ratio: null, $transition: true) {
     
     $font-size: if($size, $size, $text-base);
@@ -14,21 +18,21 @@
         transition: all 0.3s ease;
     }
 
-    @if type-of($tablet-ratio) == number {
+    @if meta.type-of($tablet-ratio) == number {
         @media (max-width: 992px) {
             font-size: $font-size * $tablet-ratio;
         }
-    } @else if type-of($tablet-ratio) == string {
+    } @else if meta.type-of($tablet-ratio) == string {
         @media (max-width: 992px) {
             font-size: $tablet-ratio;
         }
     }
 
-    @if type-of($mobile-ratio) == number {
+    @if meta.type-of($mobile-ratio) == number {
         @media (max-width: 767px) {
             font-size: $font-size * $mobile-ratio;
         }
-    } @else if type-of($mobile-ratio) == string {
+    } @else if meta.type-of($mobile-ratio) == string {
         @media (max-width: 767px) {
             font-size: $mobile-ratio;
         }

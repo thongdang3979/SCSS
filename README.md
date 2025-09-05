@@ -38,8 +38,8 @@ sass --watch scss/.:css/. --style compressed
 ## Import
 
 ```scss
-@import "mixins/mixins";
-@import "base/base";
+@use "mixins/index" as *;
+@use "base/index" as *;
 ```
 
 ## Typography
